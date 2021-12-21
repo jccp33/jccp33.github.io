@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <title>PING PONG</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=B612+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+.content{
+    border: 1px solid white;
+}
+#canvas{
+    padding: 0;
+    margin: auto;
+    display: block;
+    background-color: #000;
+}
+
+.modal{
+    font-family: 'Press Start 2P', Arial;
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+    width: 50%;
+    text-align: center;
+}
+#btn_restart{
+    font-family: 'Press Start 2P', Arial;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 25px;
+    background-color: red;
+    border-radius: 15px;
+}
+
+.aligned{
+    width: 250px;
+    border: 1px solid white;
+    font-family: 'B612 Mono', monospace, Arial;
+    font-size: 15px;
+    color: #800000;
+    margin: auto;
+}
+
+.header{
+    font-family: 'Press Start 2P', Arial;
+    text-align: center;
+    font-size: 45;
+    color: #0000ff;
+}
+</style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="../index.html" style="text-decoration: none; font-size: 25px; color: #295095;">
+            <i class="fa fa-home"></i>
+        </a>
+        <h1>PING PONG GAME</h1>
+    </div>
+    <div class="content">
+        <canvas id="canvas" width="600" height="300"></canvas>
+        <h3 style="font-family: 'Press Start 2P', Arial; text-align: center">INSTRUCTIONS:</h3>
+        <div class="aligned">
+            <p style="text-align: center;">DESKTOP GAME</p>
+            <br>
+            START:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ENTER" KEY
+            <br>
+            PURPLE UP:&nbsp;&nbsp;&nbsp;"W" KEY
+            <br>
+            PURPLE DOWN:&nbsp;"S" KEY
+            <br>
+            GREEN UP:&nbsp;&nbsp;&nbsp;&nbsp;"UP" KEY
+            <br>
+            GREEN DOWN:&nbsp;&nbsp;"DOWN" KEY    
+        </div>
+    </div>
+
+    <!-- modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <h3 style="font-size: 35px">GAME OVER</h3>
+            <button id="btn_restart">RESTART</button>
+        </div>
+    </div>
+<script>
+var canvas;
+var context;
+var btn_restart;
+var interval;
+
+var bole = {
+    x: 0,
+    y: 0,
+    radius: 2*Math.PI,
+    speed: 1,
+    horiz_dir: 1,
+    verti_dir: 1,
+    draw: function(){
+        context.beginPath();
+        context.arc(this.x, this.y, 10, 0, this.radius, false);
+        context.fillStyle = '#ffff4d';
+        context.fill();
+        context.lineWidth = 2;
+        context.strokeStyle = '#4d4d00';
+        context.stroke();
+    },
+    init: function(x, y){
+        this.x = x;
+        this.y = y;
+        this.draw();
+    },
+    move: function(){
+        this.x += this.speed * this.horiz_dir;
+        this.y += this.speed * this.verti_dir;
+    },
+    checkCollisions: function(){
+        pointX = this.radius * 2;
+        pointY = this.radius * 2;
+        if(this.x+pointX>=canvas.width || this.x-pointX<=0){
+            this.horiz_dir *= -1;
+            ShowResult();
+        }
+        if(this.y+pointY>=canvas.height || this.y-pointY<=0){
+            this.verti_dir *= -1;
+        }
+    }
+};
+
+var racket1 = {
+    y: 100,
+    draw: function(){
+        context.beginPath();
+        context.rect(10, this.y, 10, 100);
+        context.fillStyle = '#660066';
+        context.fill();
+        context.lineWidth = 2;
+        context.strokeStyle = '#e600e6';
+        context.stroke();
+    },
+    checkBole: function(){
+        boleY = bole.y+bole.radius<this.y+100 && bole.y-bole.radius>this.y;
+        boleX = bole.x-bole.radius*2 <= 20;
+        if(boleY && boleX){
+            bole.horiz_dir *= -1;
+            bole.speed += 0.5;
+        }
+    },
+    moveUp: function(){
+        if(this.y > 0){
+            this.y -= 50;
+        }
+    },
+    moveDown: function(){
+        if(this.y+100 < canvas.height){
+            this.y += 50;
+        }
+    }
+};
+
+var racket2 = {
+    y: 100,
+    draw: function(){
+        context.beginPath();
+        context.rect(580, this.y, 10, 100);
+        context.fillStyle = '#003300';
+        context.fill();
+        context.lineWidth = 2;
+        context.strokeStyle = '#00cc00';
+        context.stroke();
+    },
+    checkBole: function(){
+        boleY = bole.y+bole.radius<this.y+100 && bole.y-bole.radius>this.y;
+        boleX = bole.x+bole.radius*2 >= 580;
+        if(boleY && boleX){
+            bole.horiz_dir *= -1;
+            bole.speed += 0.5;
+        }
+    },
+    moveUp: function(){
+        if(this.y > 0){
+            this.y -= 50;
+        }
+    },
+    moveDown: function(){
+        if(this.y+100 < canvas.height){
+            this.y += 50;
+        }
+    }
+};
+
+function ShowResult(){
+    clearInterval(interval);
+    document.getElementById('myModal').style.display = "block";
+}
+
+function SetUp(){
+    btn_start = document.getElementById('btn_start');
+    btn_restart = document.getElementById('btn_restart');
+    canvas = document.getElementById('canvas');
+    context = canvas.getContext("2d");
+
+    racket1.draw();
+    racket2.draw();
+}
+
+function DrawGrid(){
+    var c_width = context.canvas.clientWidth;
+    var c_height = context.canvas.clientHeight;
+    context.lineWidth = 1;
+    context.strokeStyle = '#FFF';
+    for(i=10; i<c_width; i+=10){
+        context.beginPath();
+        context.moveTo(i, 0);
+        context.lineTo(i, 300);
+        context.stroke();
+    }
+    for(i=10; i<c_height; i+=10){
+        context.beginPath();
+        context.moveTo(0, i);
+        context.lineTo(600, i);
+        context.stroke();
+    }
+}
+
+SetUp();
+
+btn_restart.addEventListener('click', function(){
+    location.reload();
+});
+
+window.addEventListener('keydown', (e) => {
+    if(e.keyCode == 13){
+        var c_width = context.canvas.clientWidth/2;
+        var c_height = context.canvas.clientHeight/2;
+
+        if(Math.floor(Math.random()*2) == 0){
+            bole.horiz_dir = -1;
+        }else{
+            bole.horiz_dir = 1;
+        }
+        if(Math.floor(Math.random()*2) == 0){
+            bole.verti_dir = -1;
+        }else{
+            bole.verti_dir = 1;
+        }
+
+        bole.init(c_width, c_height);
+        interval = window.setInterval(() => {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            // DrawGrid();
+            bole.move();
+            bole.draw();
+            racket1.draw();
+            racket2.draw();
+
+            bole.checkCollisions();
+            racket1.checkBole();
+            racket2.checkBole();
+        }, 10);
+    }else if(e.keyCode == 38){
+        e.preventDefault();
+        racket2.moveUp();
+    }else if(e.keyCode == 40){
+        e.preventDefault();
+        racket2.moveDown();
+    }else if(e.keyCode == 87){
+        e.preventDefault();
+        racket1.moveUp();
+    }else if(e.keyCode == 83){
+        e.preventDefault();
+        racket1.moveDown();
+    }
+});
+
+</script>
+</body>
+
+</html>

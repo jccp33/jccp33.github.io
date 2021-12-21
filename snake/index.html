@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="img/snake.ico"/>
+    <title>SNAKE</title>
+    <link rel="stylesheet" href="css/basic.css">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body onkeypress="CheckArrows(ev);">
+
+    <div class="main-container">
+        <div class="title">
+            <div class="text-title">SNAKE</div>
+        </div>
+        <div class="variables">
+            <div id="div_score">SCORE: 0</div>
+            <div id="div_time">TIEMPO: 0 seg</div>
+        </div>
+        <div class="buttons" id="div-btns">
+            <button disabled onclick="StartGame();">INICIO</button>
+            <button disabled onclick="PauseGame();">PAUSE</button>
+            <button disabled onclick="location.reload();">REINICIAR</button>
+        </div>
+        <div class="content-grid">
+            <div class="grid" id="grid"></div>
+        </div>
+        <div class="extra">
+        </div>
+    </div>
+
+    <div class="floating-btns" id="floating_btns">
+        <div class="up-btns">
+            <button onclick="MoveUp();">&#8593;</button>
+        </div>
+        <div class="middle-btns">
+            <button onclick="MoveLeft();">&#8592;</button>
+            <button onclick="MoveRight();">&#8594;</button>
+        </div>
+        <div class="bottom-btns">
+            <button onclick="MoveDown();">&#8595;</button>
+        </div>
+    </div>
+
+    <div class="w-modal" id="w-modal">
+        <div class="w-modal-content">
+            <div class="div-game-over">GAME OVER</div>
+            <div class="game-data" id="modal_score">SCORE: 0</div>
+            <div class="game-data" id="modal_time">TIEMPO: 0 seg</div>
+            <button onclick="location.reload();">REINICIAR</button>
+        </div>
+    </div>
+    
+    <script src="js/setup.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
