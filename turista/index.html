@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="./img/blue_pointer.png"/>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>TURISTA MUNDIAL</title>
+</head>
+<body>
+    <div class="content">
+        <div class="panel">
+            <h3>ACCIONES</h3>
+            <hr>
+            <button onclick="FormAddGamer();">AGREGAR JUGADOR</button>
+            <button onclick="StartGame();">INICIAR JUEGO / TURNO</button>
+            <button onclick="FinishGame();">TERMINAR JUEGO</button>
+            <hr>
+            <button onclick="ThrowDice();" disabled>LANZAR DADOS</button>
+            <button onclick="ShowBuySell();" disabled>COMPRAR</button>
+            <button onclick="ShowPaymentWindow();" disabled>PAGAR</button>
+            <hr>
+            <div class="console" id="console"></div>
+        </div>
+    
+        <div class="board">
+            <div class="box" id="box1">
+                <a href="javascript:ShowJail();">
+                    <img src="img/carcel.png" alt="Carcel" title="Carcel">
+                </a>
+
+                <div class="avatars" id="posc31"></div>
+            </div>
+            <div class="box" id="box2">
+                <a href="javascript:ShowPropertie('box2');">
+                    <img src="img/argentina.png" alt="Argentina" title="Argentina">
+                </a>
+
+                <div class="avatars" id="posc30"></div>
+            </div>
+            <div class="box" id="box3">
+                <a href="javascript:ShowPropertie('box3');">
+                    <img src="img/chile.png" alt="Chile" title="Chile">
+                </a>
+
+                <div class="avatars" id="posc29"></div>
+            </div>
+            <div class="box" id="box4">
+                <a href="javascript:ShowEmails();">
+                    <img src="img/email.jpg" alt="Email" title="Email">
+                </a>
+
+                <div class="avatars" id="posc28"></div>
+            </div>
+            <div class="box" id="box5">
+                <a href="javascript:ShowPropertie('box5');">
+                    <img src="img/brazil.png" alt="Brasil" title="Brasil">
+                </a>
+
+                <div class="avatars" id="posc27"></div>
+            </div>
+            <div class="box" id="box6">
+                <a href="javascript:ShowPropertie('box6');">
+                    <img src="img/aerolinea.png" alt="Aerolinea Sudamericana" title="Aerolinea Sudamericana">
+                </a>
+
+                <div class="avatars" id="posc26"></div>
+            </div>
+            <div class="box" id="box7">
+                <a href="javascript:ShowPropertie('box7');">
+                    <img src="img/peru.png" alt="Peru" title="Peru">
+                </a>
+
+                <div class="avatars" id="posc25"></div>
+            </div>
+            <div class="box" id="box8">
+                <a href="javascript:ShowPropertie('box8');">
+                    <img src="img/venezuela.png" alt="Venezuela" title="Venezuela">
+                </a>
+
+                <div class="avatars" id="posc24"></div>
+            </div>
+            <div class="box" id="box9">
+                <a href="javascript:ShowMssgs();">
+                    <img src="img/sms.png" alt="SMS" title="SMS">
+                </a>
+
+                <div class="avatars" id="posc23"></div>
+            </div>
+            <div class="box" id="box10">
+                <a href="javascript:ShowPropertie('box10');">
+                    <img src="img/colombia.png" alt="Colombia" title="Colombia">
+                </a>
+
+                <div class="avatars" id="posc22"></div>
+            </div>
+            <div class="box" id="box11">
+                <a href="javascript:ShowAustralia();">
+                    <img src="img/australia.jpg" alt="Australia" title="Australia">
+                </a>
+
+                <div class="avatars" id="posc21"></div>
+            </div>
+            <div class="box" id="box12">
+                <a href="javascript:ShowPropertie('box12');">
+                    <img src="img/espana.png" alt="España" title="España">
+                </a>
+
+                <div class="avatars" id="posc32"></div>
+            </div>
+            <div class="box" id="box13"></div>
+            <div class="box" id="box14"></div>
+            <div class="box" id="box15"></div>
+            <div class="box" id="box16"></div>
+            <div class="box" id="box17"></div>
+            <div class="box" id="box18"></div>
+            <div class="box" id="box19"></div>
+            <div class="box" id="box20"></div>
+            <div class="box" id="box21"></div>
+            <div class="box" id="box22">
+                <a href="javascript:ShowPropertie('box22');">
+                    <img src="img/panama.png" alt="Panama" title="Panama">
+                </a>
+
+                <div class="avatars" id="posc20"></div>
+            </div>
+            <div class="box" id="box23">
+                <a href="javascript:ShowPropertie('box23');">
+                    <img src="img/francia.png" alt="francia" title="francia">
+                </a>
+
+                <div class="avatars" id="posc33"></div>
+            </div>
+            <div class="box" id="box24"></div>
+            <div class="box" id="box25"></div>
+            <div class="box" id="box26">
+                <a href="javascript:GetEmail();">
+                    <img src="img/email.jpg" alt="Email" title="Email">
+                </a>
+            </div>
+            <div class="box" id="box27"></div>
+            <div class="box" id="box28"></div>
+            <div class="box" id="box29"></div>
+            <div class="box" id="box30">
+                <a href="javascript:GetSms();">
+                    <img src="img/sms.png" alt="SMS" title="SMS">
+                </a>
+            </div>
+            <div class="box" id="box31"></div>
+            <div class="box" id="box32"></div>
+            <div class="box" id="box33">
+                <a href="javascript:ShowMssgs();">
+                    <img src="img/sms.png" alt="SMS" title="SMS">
+                </a>
+
+                <div class="avatars" id="posc19"></div>
+            </div>
+            <div class="box" id="box34">
+                <a href="javascript:ShowEmails();">
+                    <img src="img/email.jpg" alt="Email" title="Email">
+                </a>
+
+                <div class="avatars" id="posc34"></div>
+            </div>
+            <div class="box" id="box35"></div>
+            <div class="box" id="box36"></div>
+            <div class="box" id="box37"></div>
+            <div class="box" id="box38"></div>
+            <div class="box" id="box39"></div>
+            <div class="box" id="box40"></div>
+            <div class="box" id="box41"></div>
+            <div class="box" id="box42"></div>
+            <div class="box" id="box43"></div>
+            <div class="box" id="box44">
+                <a href="javascript:ShowPropertie('box44');">
+                    <img src="img/costa_rica.png" alt="Costa Rica" title="Costa Rica">
+                </a>
+
+                <div class="avatars" id="posc18"></div>
+            </div>
+            <div class="box" id="box45">
+                <a href="javascript:ShowPropertie('box45');">
+                    <img src="img/inglaterra.png" alt="inglaterra" title="inglaterra">
+                </a>
+
+                <div class="avatars" id="posc35"></div>
+            </div>
+            <div class="box" id="box46"></div>
+            <div class="box" id="box47"></div>
+            <div class="box" id="box48"></div>
+            <div class="box" id="box49"></div>
+            <div class="box" id="box50"></div>
+            <div class="box" id="box51"></div>
+            <div class="box" id="box52"></div>
+            <div class="box" id="box53"></div>
+            <div class="box" id="box54"></div>
+            <div class="box" id="box55">
+                <a href="javascript:ShowPropertie('box55');">
+                    <img src="img/guatemala.png" alt="Guatemala" title="Guatemala">
+                </a>
+
+                <div class="avatars" id="posc17"></div>
+            </div>
+            <div class="box" id="box56">
+                <a href="javascript:ShowPropertie('box56');">
+                    <img src="img/aerolinea.png" alt="Aerolinea Europea" title="Aerolinea Europea">
+                </a>
+
+                <div class="avatars" id="posc36"></div>
+            </div>
+            <div class="box" id="box57"></div>
+            <div class="box" id="box58"></div>
+            <div class="box" id="box59"></div>
+            <div class="box" id="box60"></div>
+            <div class="box" id="box61"></div>
+            <div class="box" id="box62"></div>
+            <div class="box" id="box63"></div>
+            <div class="box" id="box64"></div>
+            <div class="box" id="box65"></div>
+            <div class="box" id="box66">
+                <a href="javascript:ShowPropertie('box66');">
+                    <img src="img/aerolinea.png" alt="Aerolinea Norteamericana" title="Aerolinea Norteamericana">
+                </a>
+
+                <div class="avatars" id="posc16"></div>
+            </div>
+            <div class="box" id="box67">
+                <a href="javascript:ShowPropertie('box67');">
+                    <img src="img/italia.jpg" alt="italia" title="italia">
+                </a>
+
+                <div class="avatars" id="posc37"></div>
+            </div>
+            <div class="box" id="box68"></div>
+            <div class="box" id="box69"></div>
+            <div class="box" id="box70"></div>
+            <div class="box" id="box71"></div>
+            <div class="box" id="box72"></div>
+            <div class="box" id="box73"></div>
+            <div class="box" id="box74"></div>
+            <div class="box" id="box75"></div>
+            <div class="box" id="box76"></div>
+            <div class="box" id="box77">
+                <a href="javascript:ShowPropertie('box77');">
+                    <img src="img/mexico.png" alt="Mexico" title="Mexico">
+                </a>
+
+                <div class="avatars" id="posc15"></div>
+            </div>
+            <div class="box" id="box78">
+                <a href="javascript:ShowMssgs();">
+                    <img src="img/sms.png" alt="SMS" title="SMS">
+                </a>
+
+                <div class="avatars" id="posc38"></div>
+            </div>
+            <div class="box" id="box79"></div>
+            <div class="box" id="box80"></div>
+            <div class="box" id="box81"></div>
+            <div class="box" id="box82"></div>
+            <div class="box" id="box83"></div>
+            <div class="box" id="box84"></div>
+            <div class="box" id="box85"></div>
+            <div class="box" id="box86"></div>
+            <div class="box" id="box87"></div>
+            <div class="box" id="box88">
+                <a href="javascript:ShowEmails();">
+                    <img src="img/email.jpg" alt="Email" title="Email">
+                </a>
+
+                <div class="avatars" id="posc14"></div>
+            </div>
+            <div class="box" id="box89">
+                <a href="javascript:ShowPropertie('box89');">
+                    <img src="img/suiza.png" alt="suiza" title="suiza">
+                </a>
+
+                <div class="avatars" id="posc39"></div>
+            </div>
+            <div class="box" id="box90"></div>
+            <div class="box" id="box91"></div>
+            <div class="box" id="box92"></div>
+            <div class="box dado" id="box93" title="DADO 1">1</div>
+            <div class="box" id="box94"></div>
+            <div class="box dado" id="box95" title="DADO 2">1</div>
+            <div class="box" id="box96"></div>
+            <div class="box" id="box97"></div>
+            <div class="box" id="box98"></div>
+            <div class="box" id="box99">
+                <a href="javascript:ShowPropertie('box99');">
+                    <img src="img/usa.png" alt="estados unidos" title="estados unidos">
+                </a>
+
+                <div class="avatars" id="posc13"></div>
+            </div>
+            <div class="box" id="box100">
+                <a href="javascript:ShowPropertie('box100');">
+                    <img src="img/alemania.png" alt="alemania" title="alemania">
+                </a>
+
+                <div class="avatars" id="posc40"></div>
+            </div>
+            <div class="box" id="box101"></div>
+            <div class="box" id="box102"></div>
+            <div class="box" id="box103"></div>
+            <div class="box" id="box104"></div>
+            <div class="box" id="box105"></div>
+            <div class="box" id="box106"></div>
+            <div class="box" id="box107"></div>
+            <div class="box" id="box108"></div>
+            <div class="box" id="box109"></div>
+            <div class="box" id="box110">
+                <a href="javascript:ShowPropertie('box110');">
+                    <img src="img/canada.png" alt="Canada" title="Canada">
+                </a>
+
+                <div class="avatars" id="posc12"></div>
+            </div>
+            <div class="box" id="box111">
+                <a href="javascript:ShowAirport();">
+                    <img src="img/airport.png" alt="Aeropuerto" title="Aeropuerto">
+                </a>
+
+                <div class="avatars" id="posc1">
+                    <!-- <div class="green-pointer">
+                        <img src="img/green_pointer.png" alt="">
+                    </div>
+    
+                    <div class="red-pointer">
+                        <img src="img/red_pointer.png" alt="">
+                    </div>
+    
+                    <div class="blue-pointer">
+                        <img src="img/blue_pointer.png" alt="">
+                    </div>
+    
+                    <div class="gray-pointer">
+                        <img src="img/gray_pointer.png" alt="">
+                    </div> -->
+                </div>
+            </div>
+            <div class="box" id="box112">
+                <a href="javascript:ShowPropertie('box112');">
+                    <img src="img/marruecos.png" alt="Marruecos" title="Marruecos">
+                </a>
+
+                <div class="avatars" id="posc2"></div>
+            </div>
+            <div class="box" id="box113">
+                <a href="javascript:ShowEmails();">
+                    <img src="img/email.jpg" alt="Email" title="Email">
+                </a>
+
+                <div class="avatars" id="posc3"></div>
+            </div>
+            <div class="box" id="box114">
+                <a href="javascript:ShowPropertie('box114');">
+                    <img src="img/sudafrica.png" alt="SudAfrica" title="SudAfrica">
+                </a>
+
+                <div class="avatars" id="posc4"></div>
+            </div>
+            <div class="box" id="box115">
+                <a href="javascript:ShowPropertie('box115');">
+                    <img src="img/egipto.png" alt="Egipto" title="Egipto">
+                </a>
+
+                <div class="avatars" id="posc5"></div>
+            </div>
+            <div class="box" id="box116">
+                <a href="javascript:ShowPropertie('box116');">
+                    <img src="img/aerolinea.png" alt="Aerolinea Afroasiatica" title="Aerolinea Afroasiatica">
+                </a>
+
+                <div class="avatars" id="posc6"></div>
+            </div>
+            <div class="box" id="box117">
+                <a href="javascript:ShowPropertie('box117');">
+                    <img src="img/russia.png" alt="Rusia" title="Rusia">
+                </a>
+
+                <div class="avatars" id="posc7"></div>
+            </div>
+            <div class="box" id="box118">
+                <a href="javascript:ShowMssgs();">
+                    <img src="img/sms.png" alt="SMS" title="SMS">
+                </a>
+
+                <div class="avatars" id="posc8"></div>
+            </div>
+            <div class="box" id="box119">
+                <a href="javascript:ShowPropertie('box119');">
+                    <img src="img/china.png" alt="China" title="China">
+                </a>
+
+                <div class="avatars" id="posc9"></div>
+            </div>
+            <div class="box" id="box120">
+                <a href="javascript:ShowPropertie('box120');">
+                    <img src="img/japon.jpg" alt="Japon" title="Japon">
+                </a>
+
+                <div class="avatars" id="posc10"></div>
+            </div>
+            <div class="box" id="box121">
+                <a href="javascript:ShowDeported();">
+                    <img src="img/deportado.jpg" alt="Deportado" title="Deportado">
+                </a>
+
+                <div class="avatars" id="posc11"></div>
+            </div>
+            <div class="turista-logo">
+                <img src="img/turista_logo.png" alt="TURISTA MUNDIAL" title="TURISTA MUNDIAL">
+            </div>
+        </div>
+
+        <div class="panel" id="gamers-panel">
+            <h3>JUGADORES</h3>
+            <hr>
+
+            <div class="gamer-purple">
+                <h4>BANCO</h4>
+                <div class="properties">
+                    <div id="bank-money">DINERO: $</div>
+                    <br>
+                    PROPIEDADES:
+                    <br>
+                    <select name="bank-prop" id="bank-prop">
+                        <option value="" disabled>Seleccionar</option>
+                    </select>
+                    <button onclick="gamer_bank.showProperty();">MOSTRAR</button>
+                </div>
+            </div>
+            
+            <!-- <div class="gamer-red">
+                <h4>name</h4>
+                <div class="red-pointer pointer-game">
+                    <img src="img/red_pointer.png" alt="">
+                </div>
+                <div class="properties">
+                    <div id="">DINERO: $</div>
+                    <br>
+                    PROPIEDADES:
+                    <br>
+                    <select name="" id="">
+                        <option value="" disabled>Seleccionar</option>
+                    </select>
+                    <button>MOSTRAR</button>
+                </div>
+            </div> -->
+            
+            <!-- <div class="gamer-green">
+                <h4>name</h4>
+                <div class="red-pointer pointer-game">
+                    <img src="img/green_pointer.png" alt="">
+                </div>
+                <div class="properties"></div>
+            </div>
+            
+            <div class="gamer-blue">
+                <h4>name</h4>
+                <div class="red-pointer pointer-game">
+                    <img src="img/blue_pointer.png" alt="">
+                </div>
+                <div class="properties"></div>
+            </div>
+            
+            <div class="gamer-gray">
+                <h4>name</h4>
+                <div class="red-pointer pointer-game">
+                    <img src="img/gray_pointer.png" alt="">
+                </div>
+                <div class="properties"></div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-title" id="modal-title">title</div>
+            <div class="modal-body" id="modal-body">body</div>
+            <div class="modal-buttons" id="modal-buttons">
+                <button onclick="CloseModal();">CERRAR</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-loader" style="display: block;">
+        <div class="img-loader">
+            <img src="img/loader.gif" alt="LOADER">
+        </div>
+    </div>
+
+    <script src="js/util.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

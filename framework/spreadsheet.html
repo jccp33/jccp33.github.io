@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/my-fw.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div-modal from-top" id="loading-div" style="top: 0;">
+        <br><br>
+        <div class="spinner spinner-secondary"></div>
+    </div>
+
+    <div class="div-toast" id="div-toasts"></div>
+
+    <div class="div-snackbar" id="div-snackbar"></div>
+
+    <div class="app-bar">
+        <div class="bar-container">
+            <div>
+                <div class="group-icons">
+                    <a href="javascript:SHOW_LEFT_MENU()"><i class="fa fa-bars"></i></a>
+                </div>
+                <div class="div-menu-opt left-menu" id="left-menu" style="display: none;">
+                    <ul>
+                        <li>
+                            <a href="./index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="./spreadsheet.html">Spread Sheet</a>
+                        </li>
+                        <li>
+                            <a href="./register.html">Register</a>
+                        </li>
+                        <li>
+                            <a href="./login_simple.html">Simple Login</a>
+                        </li>
+                        <li>
+                            <a href="./login_image.html">Image Login</a>
+                        </li>
+                        <li>
+                            <a href="./login_video.html">Video Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="app-name">App Name</div>
+            <div>
+                <div class="group-icons">
+                    <a href="javascript:SHOW_RIGHT_MENU()"><i class="fa fa-ellipsis-v"></i></a>
+                </div>
+                <div class="div-menu-opt right-menu" id="right-menu" style="display: none;">
+                    <ul>
+                        <li>
+                            <a href="javascript:ShowAlertsExample();">Alerts</a>
+                        </li>
+                        <li>
+                            <a href="javascript:FRAMEWORK_SNACKBAR('Snackbar message!', 'EVENT', '#');">SnackBar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container main-full">
+        <div class="tools-bar">
+            <button class="button-text primary">
+                <i class="fa fa-copy"></i>
+                <span>Copy</span>
+            </button>
+            <button class="button-text primary">
+                <i class="fa fa-clipboard"></i>
+                <span>Paste</span>
+            </button>
+            <div class="tools-divider"></div>
+        </div>
+
+        <div class="tabs-bar">
+            <button class="button-text gray">Sheet</button>
+            <button class="button-text default">Sheet</button>
+            <button class="button-text default">Sheet</button>
+            <button class="button-text default">Sheet</button>
+        </div>
+
+        <div class="table-responsive table-spreadsheet">
+            <table>
+                <tbody class="sheet-body" id="sheet-body">
+                    <tr class="sheet-row">
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                    </tr>
+                    <tr class="sheet-row">
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                    </tr>
+                    <tr class="sheet-row">
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                    </tr>
+                    <tr class="sheet-row">
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                        <td class="sheet-cell">
+                            <input type="text" onkeydown="MoveOrText(event);">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="app-bar">
+        <div class="bar-container">
+            <div></div>
+            <a href="#" class="app-footer">
+                &copy; Footer
+            </a>
+            <div></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="./js/my-fw.js"></script>
+    <script>
+        function EnterKeyPressed(ev){
+            ev.preventDefault();
+            let cell = ev.target.parentNode;
+            let row = cell.parentNode;
+            let tbody = row.parentNode;
+            if(row.rowIndex < tbody.rows.length-1){
+                let nextRow = row.rowIndex + 1;
+                tbody.rows[nextRow].cells[cell.cellIndex].children[0].focus();
+            }else{
+                let nextRow = row.rowIndex + 1;
+                let allCells = tbody.rows[0].cells.length;
+                let _row = document.createElement("tr");
+                _row.classList.add('sheet-row');
+                for(let i=0; i<allCells; i++){
+                    let td = document.createElement("td");
+                    td.classList.add('sheet-cell');
+                    td.innerHTML = `<input type="text" onkeydown="MoveOrText(event);">`;
+                    _row.appendChild(td); 
+                } 
+                tbody.appendChild(_row);
+                tbody.rows[nextRow].cells[cell.cellIndex].children[0].focus();
+            }
+        }
+
+        function UpKeyPressed(ev){
+            ev.preventDefault();
+            let cell = ev.target.parentNode;
+            let row = cell.parentNode;
+            let tbody = row.parentNode;
+            if(row.rowIndex > 0){
+                let nextRow = row.rowIndex - 1;
+                tbody.rows[nextRow].cells[cell.cellIndex].children[0].focus();
+            }
+        }
+
+        function DownKeyPressed(ev){
+            ev.preventDefault();
+            let cell = ev.target.parentNode;
+            let row = cell.parentNode;
+            let tbody = row.parentNode;
+            if(row.rowIndex < tbody.rows.length-1){
+                let nextRow = row.rowIndex + 1;
+                tbody.rows[nextRow].cells[cell.cellIndex].children[0].focus();
+            }else{
+                let nextRow = row.rowIndex + 1;
+                let allCells = tbody.rows[0].cells.length;
+                let _row = document.createElement("tr");
+                _row.classList.add('sheet-row');
+                for(let i=0; i<allCells; i++){
+                    let td = document.createElement("td");
+                    td.classList.add('sheet-cell');
+                    td.innerHTML = `<input type="text" onkeydown="MoveOrText(event);">`;
+                    _row.appendChild(td); 
+                } 
+                tbody.appendChild(_row);
+                tbody.rows[nextRow].cells[cell.cellIndex].children[0].focus();
+            }
+        }
+
+        function LeftKeyPressed(ev){
+            ev.target.onfocus = ()=>{
+                ev.target.setSelectionRange(null, 1000);
+            }
+
+            if(ev.target.value!=="" && ev.target.selectionStart!==0){
+                return;
+            }
+            
+            ev.preventDefault();
+            let cell = ev.target.parentNode;
+            let row = cell.parentNode;
+            let tbody = row.parentNode;
+            if(cell.cellIndex > 0){
+                let nextCell = cell.cellIndex - 1;
+                tbody.rows[row.rowIndex].cells[nextCell].children[0].focus();
+            }
+        }
+
+        function RightKeyPressed(ev){
+            ev.target.onfocus = ()=>{
+                ev.target.setSelectionRange(null, 1000);
+            }
+
+            if(ev.target.value!=="" && ev.target.selectionStart!==ev.target.value.length){
+                return;
+            }
+            
+            ev.preventDefault();
+            let cell = ev.target.parentNode;
+            let row = cell.parentNode;
+            let tbody = row.parentNode;
+            if(cell.cellIndex < tbody.rows[0].cells.length-1){
+                let nextCell = cell.cellIndex + 1;
+                tbody.rows[row.rowIndex].cells[nextCell].children[0].focus();
+            }else{
+                let nextCell = cell.cellIndex + 1;
+                let rows = tbody.rows;
+                for(let r=0; r<rows.length; r++){
+                    let row = rows[r];
+                    let td = document.createElement("td");
+                    td.classList.add("sheet-cell");
+                    td.innerHTML = `<input type="text" onkeydown="MoveOrText(event);">`;
+                    row.appendChild(td);
+                }
+                tbody.rows[row.rowIndex].cells[nextCell].children[0].focus();
+            }
+        }
+
+        function MoveOrText(ev){
+            if(ev.keyCode === 13){
+                EnterKeyPressed(ev);
+            }
+            if(ev.keyCode === 38){
+                UpKeyPressed(ev);
+            }
+            if(ev.keyCode === 40){
+                DownKeyPressed(ev);
+            }
+            if(ev.keyCode === 37){
+                LeftKeyPressed(ev);
+            }
+            if(ev.keyCode === 39){
+                RightKeyPressed(ev);
+            }
+        }
+    </script>
+</body>
+</html>

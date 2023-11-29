@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/my-fw.css">
+    <title>My FW v7</title>
+</head>
+<body>
+    <div class="div-modal from-top" id="loading-div" style="top: 0;">
+        <br><br>
+        <div class="spinner spinner-secondary"></div>
+    </div>
+
+    <div class="div-toast" id="div-toasts"></div>
+
+    <div class="div-snackbar" id="div-snackbar"></div>
+
+    <div class="div-modal from-left" id="div-modal-full" style="left: -100%;">
+        <div class="modal-content-full">
+            <div class="modal-title">
+                <i class="fa fa-times i-toast clickable" aria-hidden="true" onclick="SWOH_WINDOW_MODAL('div-modal-full');"></i>
+                <h3>Modal Full</h3>
+            </div>
+            <div class="modal-body">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quidem animi dignissimos ipsum repudiandae quod. Facere quidem eos illum impedit accusantium non porro! Obcaecati explicabo aliquid magni deserunt alias velit.
+                <br>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quidem animi dignissimos ipsum repudiandae quod. Facere quidem eos illum impedit accusantium non porro! Obcaecati explicabo aliquid magni deserunt alias velit.
+                <br>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quidem animi dignissimos ipsum repudiandae quod. Facere quidem eos illum impedit accusantium non porro! Obcaecati explicabo aliquid magni deserunt alias velit.
+                <br>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quidem animi dignissimos ipsum repudiandae quod. Facere quidem eos illum impedit accusantium non porro! Obcaecati explicabo aliquid magni deserunt alias velit.
+                <br>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quidem animi dignissimos ipsum repudiandae quod. Facere quidem eos illum impedit accusantium non porro! Obcaecati explicabo aliquid magni deserunt alias velit.
+            </div>
+        </div>
+    </div>
+
+    <div class="div-modal from-left" id="div-modal-middle" style="left: -100%;">
+        <div class="modal-content-middle">
+            <div class="modal-title">
+                <i class="fa fa-times i-toast clickable" aria-hidden="true" onclick="SWOH_WINDOW_MODAL('div-modal-middle');"></i>
+                <h3>Modal Middle</h3>
+            </div>
+            <div class="modal-body">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quidem animi dignissimos ipsum repudiandae quod. Facere quidem eos illum impedit accusantium non porro! Obcaecati explicabo aliquid magni deserunt alias velit.
+                <br>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quidem animi dignissimos ipsum repudiandae quod. Facere quidem eos illum impedit accusantium non porro! Obcaecati explicabo aliquid magni deserunt alias velit.
+                <br>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quidem animi dignissimos ipsum repudiandae quod. Facere quidem eos illum impedit accusantium non porro! Obcaecati explicabo aliquid magni deserunt alias velit.
+            </div>
+        </div>
+    </div>
+
+    <div class="div-modal from-left" id="div-modal-little" style="left: -100%;">
+        <div class="modal-content-little">
+            <div class="modal-title">
+                <i class="fa fa-times i-toast clickable" aria-hidden="true" onclick="SWOH_WINDOW_MODAL('div-modal-little');"></i>
+                <h3>Modal Little</h3>
+            </div>
+            <div class="modal-body">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quidem animi dignissimos ipsum repudiandae quod. Facere quidem eos illum impedit accusantium non porro! Obcaecati explicabo aliquid magni deserunt alias velit.
+            </div>
+        </div>
+    </div>
+    
+    <div class="app-bar bar-top">
+        <div class="bar-container">
+            <div>
+                <div class="group-icons">
+                    <a href="javascript:SHOW_LEFT_MENU()"><i class="fa fa-bars"></i></a>
+                </div>
+                <div class="div-menu-opt left-menu" id="left-menu" style="display: none;">
+                    <ul>
+                        <li>
+                            <a href="./index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="./spreadsheet.html">Spread Sheet</a>
+                        </li>
+                        <li>
+                            <a href="./register.html">Register</a>
+                        </li>
+                        <li>
+                            <a href="./login_simple.html">Simple Login</a>
+                        </li>
+                        <li>
+                            <a href="./login_image.html">Image Login</a>
+                        </li>
+                        <li>
+                            <a href="./login_video.html">Video Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="app-name">App Name</div>
+            <div>
+                <div class="group-icons">
+                    <a href="javascript:SHOW_RIGHT_MENU()"><i class="fa fa-ellipsis-v"></i></a>
+                </div>
+                <div class="div-menu-opt right-menu" id="right-menu" style="display: none;">
+                    <ul>
+                        <li>
+                            <a href="javascript:ShowAlertsExample();">Alerts</a>
+                        </li>
+                        <li>
+                            <a href="javascript:FRAMEWORK_SNACKBAR('Snackbar message!', 'EVENT', '#');">SnackBar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <h1>My Framework - v7</h1>
+
+        <div class="divider"></div>
+        <div class="online-group">
+            <input type="text" class="input default-input" placeholder="Search">
+            <button class="button-icon info">
+                <i class="fa fa-search"></i>
+            </button>
+            <button class="button-icon success">
+                <i class="fa fa-plus-circle"></i>
+            </button>
+        </div>
+
+        <div class="divider"></div>
+        <br>
+        <a href="javascript:SWOH_WINDOW_MODAL('div-modal-full');" class="button-text primary">Modal Full Screen</a>
+        <br><br>
+        <a href="javascript:SWOH_WINDOW_MODAL('div-modal-middle');" class="button-text primary">Modal Middle Screen</a>
+        <br><br>
+        <a href="javascript:SWOH_WINDOW_MODAL('div-modal-little');" class="button-text primary">Modal Little Screen</a>
+        <br><br>
+
+        <div class="divider"></div>
+        <input type="text" class="input default-input" placeholder="default input">
+        <input type="text" class="input primary-input" placeholder="primary input">
+        <input type="text" class="input secondary-input" placeholder="secondary input">
+        <input type="text" class="input success-input" placeholder="success input">
+        <input type="text" class="input danger-input" placeholder="danger input">
+        <input type="text" class="input warning-input" placeholder="warning input">
+        <input type="date" class="input success-input">
+        <input type="time" class="input success-input">
+        <div class="input-icon">
+            <input type="text" class="input primary-input" placeholder="primary input icon">
+            <i class="fa fa-eye"></i>
+        </div>
+        <div class="input-icon">
+            <input type="text" class="input secondary-input" placeholder="secondary input icon">
+            <i class="fa fa-search"></i>
+        </div>
+        <div class="input-icon">
+            <input type="text" class="input info-input" placeholder="info input icon">
+            <i class="fa fa-info-circle"></i>
+        </div>
+
+        <div class="divider"></div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui amet, commodi soluta adipisci voluptates eum ullam earum. Laudantium eius facere fuga reprehenderit sequi fugiat! A corporis voluptatem quos quae perferendis. Nemo inventore error est voluptas hic dolores facilis possimus sed eos assumenda accusantium iusto at eveniet, harum impedit exercitationem quas debitis fuga quidem id? Laudantium doloremque recusandae autem suscipit voluptatum? Aspernatur minus numquam hic asperiores perspiciatis minima velit non, officiis harum atque quibusdam quidem doloremque voluptatem alias rerum aliquam quaerat iure obcaecati consectetur eius unde ipsum amet. Nesciunt, nobis similique. Modi saepe et nam assumenda distinctio ullam voluptates doloribus consequatur dolorum ipsam voluptatem, nesciunt unde quas possimus. Voluptatem culpa, nihil deleniti ea rem, atque quia ad veniam, rerum laudantium non? Vel quo maxime ut nemo exercitationem rem inventore suscipit vitae dolor, sunt aliquam velit, quae, quam soluta quidem aut. Aut unde similique rem ducimus aspernatur blanditiis libero neque! Tempora, hic?
+
+        <div class="divider"></div>
+        <h1>Header 1</h1>
+        <h2>Header 2</h2>
+        <h3>Header 3</h3>
+        <h4>Header 4</h4>
+        <h5>Header 5</h5>
+        <h6>Header 6</h6>
+        
+        <div class="divider"></div>
+        <h1 class="title">Title 1</h1>
+        <h2 class="title">Title 2</h2>
+        <h3 class="title">Title 3</h3>
+        <h4 class="title">Title 4</h4>
+        <h5 class="title">Title 5</h5>
+        <h6 class="title">Title 6</h6>
+        
+        <div class="divider"></div>
+        <h1 class="sub-title">Sub-Title 1</h1>
+        <h2 class="sub-title">Sub-Title 2</h2>
+        <h3 class="sub-title">Sub-Title 3</h3>
+        <h4 class="sub-title">Sub-Title 4</h4>
+        <h5 class="sub-title">Sub-Title 5</h5>
+        <h6 class="sub-title">Sub-Title 6</h6>
+        
+        <div class="divider"></div>
+        <div class="div-text default">Class Default</div>
+        <div class="div-text primary">Class Primary</div>
+        <div class="div-text secondary">Class Secondary</div>
+        <div class="div-text success">Class Success</div>
+        <div class="div-text warning">Class Warning</div>
+        <div class="div-text danger">Class Danger</div>
+        <div class="div-text info">Class Info</div>
+        <div class="div-text gray">Class Gray</div>
+        <div class="div-text dark">Class Dark</div>
+        
+        <div class="divider"></div>
+        <div class="spinner spinner-primary"></div>
+        <div class="spinner spinner-secondary"></div>
+        <div class="spinner spinner-success"></div>
+        <div class="spinner spinner-warning"></div>
+        <div class="spinner spinner-danger"></div>
+        <div class="spinner spinner-info"></div>
+        <div class="spinner spinner-gray"></div>
+        <div class="spinner spinner-dark"></div>
+        
+        <div class="divider"></div>
+        <button class="button-text block-button gray">Block Button</button>
+        <br><br>
+        <a href="#" class="button-text gray focus">Link Button - Animation: Focus</a>
+        <br><br>
+        <button class="button-text primary beat">Primary Button - Animation: Beat</button>
+        <br><br>
+        <a href="#" class="button-text primary">Primary Link Button</a>
+        <br><br>
+        <button class="button-text secondary wiggle">Secondary Button - Animation: Wiggle</button>
+        <br><br>
+        <a href="#" class="button-text secondary">Secondary Link Button</a>
+        <br><br>
+        <button class="button-text success">Success Button</button>
+        <br><br>
+        <a href="#" class="button-text success">Success Link Button</a>
+        <br><br>
+        <input type="submit" class="button-text danger" value="Submit Danger Button">
+        <br><br>
+        <input type="submit" class="button-text warning" value="Submit Warning Button">
+        <br><br>
+        <input type="submit" class="button-text info" value="Submit Info Button">
+        <br><br>
+        <button class="button-icon info">
+            <i class="fa fa-search"></i>
+        </button>
+        <button class="button-icon gray">
+            <i class="fa fa-plus-circle"></i>
+        </button>
+        <button class="button-icon primary">
+            <i class="fa fa-edit"></i>
+        </button>
+        <button class="button-icon success">
+            <i class="fa fa-eye"></i>
+        </button>
+        <button class="button-icon danger">
+            <i class="fa fa-trash"></i>
+        </button>
+        <button class="button-icon warning">
+            <i class="fa fa-warning"></i>
+        </button>
+        <button class="button-icon info">
+            <i class="fa fa-info-circle"></i>
+        </button>
+
+        <div class="divider"></div>
+        <div class="card default-card">
+            <h2>Default Card</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam porro ducimus. Adipisci dolorum accusantium eligendi, voluptas modi maiores illum atque provident unde optio animi sapiente quam quae pariatur est!
+        </div>
+        <div class="card primary-card">
+            <h2>Primary Card</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam porro ducimus. Adipisci dolorum accusantium eligendi, voluptas modi maiores illum atque provident unde optio animi sapiente quam quae pariatur est!
+        </div>
+        <div class="card secondary-card">
+            <h2>Secondary Card</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam porro ducimus. Adipisci dolorum accusantium eligendi, voluptas modi maiores illum atque provident unde optio animi sapiente quam quae pariatur est!
+        </div>
+        <div class="card success-card">
+            <h2>Success Card</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam porro ducimus. Adipisci dolorum accusantium eligendi, voluptas modi maiores illum atque provident unde optio animi sapiente quam quae pariatur est!
+        </div>
+        <div class="card danger-card">
+            <h2>Danger Card</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam porro ducimus. Adipisci dolorum accusantium eligendi, voluptas modi maiores illum atque provident unde optio animi sapiente quam quae pariatur est!
+        </div>
+        <div class="card warning-card">
+            <h2>Warning Card</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam porro ducimus. Adipisci dolorum accusantium eligendi, voluptas modi maiores illum atque provident unde optio animi sapiente quam quae pariatur est!
+        </div>
+        <div class="card info-card">
+            <h2>Info Card</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam porro ducimus. Adipisci dolorum accusantium eligendi, voluptas modi maiores illum atque provident unde optio animi sapiente quam quae pariatur est!
+        </div>
+
+        <div class="divider"></div>
+        <button class="button-text success" onclick="exportTableToExcel();">Export To Excel</button>
+        <div class="table-responsive">
+            <table id="users-table">
+                <thead>
+                    <tr>
+                        <th class="sortable-column"><i class="fa fa-sort"></i> ID</th>
+                        <th class="sortable-column"><i class="fa fa-sort"></i> Name</th>
+                        <th class="sortable-column"><i class="fa fa-sort"></i> Last Name</th>
+                        <th class="sortable-column"><i class="fa fa-sort"></i> Email</th>
+                        <th class="sortable-column"><i class="fa fa-sort"></i> Phone</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+                        <td>451522</td>
+                        <td>Carlos</td>
+                        <td>Cardenas</td>
+                        <td>example@email.com</td>
+                        <td>0000000000</td>
+                        <td>
+                            <div class="online-group">
+                                <button class="button-icon success">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                                <button class="button-icon primary">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="button-icon danger">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="warning">
+                        <td>451522</td>
+                        <td>Carlos</td>
+                        <td>Cardenas</td>
+                        <td class="success">example@email.com</td>
+                        <td>0000000000</td>
+                        <td>
+                            <div class="online-group">
+                                <button class="button-icon success">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                                <button class="button-icon primary">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="button-icon danger">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>451522</td>
+                        <td>Carlos</td>
+                        <td>Cardenas</td>
+                        <td>example@email.com</td>
+                        <td>0000000000</td>
+                        <td>
+                            <div class="online-group">
+                                <button class="button-icon success">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                                <button class="button-icon primary">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="button-icon danger">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>451522</td>
+                        <td>Carlos</td>
+                        <td>Cardenas</td>
+                        <td>example@email.com</td>
+                        <td>0000000000</td>
+                        <td>
+                            <div class="online-group">
+                                <button class="button-icon success">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                                <button class="button-icon primary">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="button-icon danger">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="primary">
+                        <td>451522</td>
+                        <td>Carlos</td>
+                        <td>Cardenas</td>
+                        <td>example@email.com</td>
+                        <td>0000000000</td>
+                        <td>
+                            <div class="online-group">
+                                <button class="button-icon success">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                                <button class="button-icon primary">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="button-icon danger">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>451522</td>
+                        <td>Carlos</td>
+                        <td>Cardenas</td>
+                        <td>example@email.com</td>
+                        <td>0000000000</td>
+                        <td>
+                            <div class="online-group">
+                                <button class="button-icon success">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                                <button class="button-icon primary">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="button-icon danger">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>451522</td>
+                        <td>Carlos</td>
+                        <td>Cardenas</td>
+                        <td>example@email.com</td>
+                        <td class="danger">0000000000</td>
+                        <td>
+                            <div class="online-group">
+                                <button class="button-icon success">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                                <button class="button-icon primary">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="button-icon danger">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+        <div class="online-group">
+            <label for="select-order">Order By: </label>
+            <select name="select-order" id="select-order" style="width: auto;">
+                <option value="id">ID</option>
+                <option value="name">NAME</option>
+                <option value="last">LAST NAME</option>
+                <option value="email">EMAIL</option>
+                <option value="phone">PHONE</option>
+            </select>
+        </div>
+        <div class="div-list" id="div-list">
+            <div class="card default-card card-item-list clickable">
+                <img src="./img/avatar.png" alt="avatar" width="80" height="80">
+                <div class="card-item-content">
+                    <div class="card-item-field identifier">451522</div>
+                    <div class="card-item-field">Carlos Cardenas</div>
+                    <div class="card-item-field">example@email.com</div>
+                    <div class="card-item-field">0000000000</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <div class="div-grid">
+            <div class="card primary-card">
+                <h2>Primary Card</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam porro ducimus. Adipisci dolorum accusantium eligendi, voluptas modi maiores illum atque provident unde optio animi sapiente quam quae pariatur est!
+            </div>
+
+            <div class="card secondary-card">
+                <h2>Secondary Card</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam porro ducimus. Adipisci dolorum accusantium eligendi, voluptas modi maiores illum atque provident unde optio animi sapiente quam quae pariatur est!
+            </div>
+
+            <div class="card success-card">
+                <h2>Success Card</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam porro ducimus. Adipisci dolorum accusantium eligendi, voluptas modi maiores illum atque provident unde optio animi sapiente quam quae pariatur est!
+            </div>
+    
+            <div class="card danger-card">
+                <h2>Danger Card</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam porro ducimus. Adipisci dolorum accusantium eligendi, voluptas modi maiores illum atque provident unde optio animi sapiente quam quae pariatur est!
+            </div>
+
+            <div class="card warning-card">
+                <h2>Warning Card</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam porro ducimus. Adipisci dolorum accusantium eligendi, voluptas modi maiores illum atque provident unde optio animi sapiente quam quae pariatur est!
+            </div>
+
+            <div class="card info-card">
+                <h2>Info Card</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam porro ducimus. Adipisci dolorum accusantium eligendi, voluptas modi maiores illum atque provident unde optio animi sapiente quam quae pariatur est!
+            </div>
+
+            <div class="card default-card">
+                <canvas id="myChart"></canvas>
+            </div>
+
+            <div class="card default-card">
+                <canvas id="myChart2"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-bar bar-footer">
+        <div class="bar-container">
+            <div></div>
+            <a href="#" class="app-footer">
+                &copy; Footer
+            </a>
+            <div></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="./js/my-fw.js"></script>
+</body>
+</html>

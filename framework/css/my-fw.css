@@ -1,0 +1,970 @@
+
+/* ------------------------------------------------------ */
+/* -------------------- MY FRAMEWORK -------------------- */
+/* --------------------- Version: 7 --------------------- */
+/* ----------------------- jccp33 ----------------------- */
+/* ------------------------------------------------------ */
+
+/* ------------------------------------------------------ */
+/* -------------------- Configuration ------------------- */
+/* ------------------------------------------------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+:root{
+    --primary-light: #b8bde0;
+    --primary-color: #5F69B9;
+    --primary-dark: #2f366a;
+    --secondary-light: #f5bdd5;
+    --secondary-color: #E55B96;
+    --secondary-dark: #b01c5c;
+
+    --success-color: #00ff00;
+    --danger-color: #ff0000;
+    --warning-color: #999900;
+    --info-color: #17A2B8;
+
+    --gray-light: #cccccc;
+    --gray-small: #a6a6a6;
+    --gray-color: #808080;
+    --gray-medium: #595959;
+    --gray-dark: #333333;
+    --blue-light: #9999ff;
+    --blue-color: #0000ff;
+    --blue-dark: #000066;
+    --green-light: #00cc00;
+    --green-color: #008000;
+    --green-dark: #004400;
+    --red-light: #ff8080;
+    --red-color: #ff0000;
+    --red-dark: #800000;
+
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --yellow-color: #ffff00;
+    --scroll-light: #bfbfbf;
+    --scroll-dark: #999999;
+
+    --font: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scroll-light);
+    border: 1px solid var(--black-color);
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-light);
+}
+
+/* ------------------------------------------------------ */
+/* ------------------------ Tags ------------------------ */
+/* ------------------------------------------------------ */
+
+body{
+    background-color: var(--gray-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 8px;
+    text-align: center;
+}
+
+select {
+    width: 100%;
+    padding: 4px;
+    font-size: 1em;
+    text-align: center;
+    border-radius: 4px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 4px;
+}
+
+thead {
+    background-color: var(--gray--light);
+}
+
+tr {
+    border-bottom: 1px solid var(--gray-color);
+}
+
+th, td, tr {
+    white-space: nowrap;
+    padding: 0px 8px;
+}
+
+/* ------------------------------------------------------ */
+/* ------------------------ Class ----------------------- */
+/* ------------------------------------------------------ */
+
+.clickable{
+    cursor: pointer;
+}
+
+.clickable:active{
+    opacity: 0.75;
+}
+
+.divider{
+    background-color: var(--gray-light);
+    width: 98%;
+    height: 2px;
+    border-radius: 2px;
+    margin: auto;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.title{
+    font-style: italic;
+    color: var(--gray-dark);
+}
+
+.sub-title{
+    font-style: italic;
+    color: var(--gray-medium);
+}
+
+.div-text{
+    margin: 4px;
+    padding: 4px;
+}
+
+.default{
+    background-color: var(--gray-light);
+    color: var(--black-color);
+}
+
+.primary{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.secondary{
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+}
+
+.success{
+    background-color: var(--green-dark);
+    color: var(--white-color);
+}
+
+.danger{
+    background-color: var(--danger-color);
+    color: var(--white-color);
+}
+
+.warning{
+    background-color: var(--warning-color);
+    color: var(--white-color);
+}
+
+.info{
+    background-color: var(--info-color);
+    color: var(--white-color);
+}
+
+.gray{
+    background-color: var(--gray-medium);
+    color: var(--white-color);
+}
+
+.dark{
+    background-color: var(--gray-dark);
+    color: var(--white-color);
+}
+
+/* ------------------------------------------------------ */
+/* ------------------------ Modals ---------------------- */
+/* ------------------------------------------------------ */
+
+.div-modal {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    overflow: auto;
+    z-index: 10;
+    transition: all 0.25s ease 0s;
+}
+
+.modal-content-full{
+    background-color: var(--white-color);
+    height: calc(100vh - 16px);
+    margin: 8px;
+    border-radius: 8px;
+}
+
+.modal-content-middle{
+    background-color: var(--white-color);
+    width: 60%;
+    min-width: 320px;
+    max-height: calc(100vh - 16px);
+    margin: auto;
+    margin-top: 8px;
+    text-align: center;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.modal-content-little{
+    background-color: var(--white-color);
+    width: 20%;
+    min-width: 320px;
+    max-height: calc(100vh - 16px);
+    margin: auto;
+    margin-top: 8px;
+    text-align: center;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.modal-content{
+    background-color: var(--white-color);
+    width: 100%;
+    min-width: 320px;
+    max-width: 480px;
+    margin: auto;
+    margin-top: 8px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.modal-title{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--gray-color);
+    height: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.modal-body{
+    max-height: calc(100vh - 16px - 40px);
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.flexible{
+    width: auto;
+    max-height: none;
+}
+
+.from-top{
+    top: -100vh;
+    transition: all 1s ease 1s;
+}
+
+.from-left{
+    left: -100%;
+    transition: all 1s ease 1s;
+}
+
+.from-right{
+    right: -100%;
+    transition: all 1s ease 1s;
+}
+
+/* ------------------------------------------------------ */
+/* ----------------------- App Bars --------------------- */
+/* ------------------------------------------------------ */
+
+.app-name{
+    font-weight: bolder;
+}
+
+.app-footer{
+    text-decoration: none;
+    color: var(--white-color);
+    font-style: italic;
+}
+
+.app-bar{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    width: 100%;
+    height: 32px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bar-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: auto;
+    z-index: 5;
+}
+
+.group-icons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.group-icons a i{
+    padding: 4px 16px;
+    color: var(--white-color);
+}
+
+.div-menu-opt{
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 40px;
+    width: 160px;
+    padding: 4px;
+    border-radius: 0px 0px 2px 2px;
+    z-index: 5;
+}
+
+.div-menu-opt ul{
+    list-style: none;
+}
+
+.div-menu-opt ul li{
+    margin: 4px;
+}
+
+.div-menu-opt ul li a{
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+.left-menu{
+    top: 32px;
+    left: 0;
+    margin-left: 16px;
+}
+
+.right-menu{
+    top: 32px;
+    right: 0;
+    margin-right: 16px;
+}
+
+/* ------------------------------------------------------ */
+/* ------------------- Main Container ------------------- */
+/* ------------------------------------------------------ */
+
+.main-container{
+    background-color: var(--white-color);
+    height: calc(100vh - 64px);
+    margin: auto;
+    padding: 8px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 8px, rgba(0, 0, 0, 0.25) 0px 16px 24px -8px;
+    overflow: auto;
+}
+
+/* ------------------------------------------------------ */
+/* ---------------------- Spinners ---------------------- */
+/* ------------------------------------------------------ */
+
+.spinner {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+}
+
+.spinner-primary{
+    border: 8px solid var(--primary-light);
+    border-top: 8px solid var(--primary-dark);
+}
+
+.spinner-secondary{
+    border: 8px solid var(--secondary-light);
+    border-top: 8px solid var(--secondary-dark);
+}
+
+.spinner-success{
+    border: 8px solid var(--green-light);
+    border-top: 8px solid var(--green-dark);
+}
+
+.spinner-warning{
+    border: 8px solid var(--yellow-color);
+    border-top: 8px solid var(--warning-color);
+}
+
+.spinner-danger{
+    border: 8px solid var(--red-light);
+    border-top: 8px solid var(--red-dark);
+}
+
+.spinner-info{
+    border: 8px solid var(--blue-light);
+    border-top: 8px solid var(--blue-dark);
+}
+
+.spinner-gray{
+    border: 8px solid var(--gray-light);
+    border-top: 8px solid var(--gray-dark);
+}
+
+.spinner-dark{
+    border: 8px solid var(--gray-dark);
+    border-top: 8px solid var(--gray-light);
+}
+
+/* ------------------------------------------------------ */
+/* ----------------------- Buttons ---------------------- */
+/* ------------------------------------------------------ */
+
+.button-text{
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    margin: 4px;
+    padding: 4px 8px;
+    min-width: 120px;
+}
+
+.block-button{
+    width: 100%;
+}
+
+.button-text:active{
+    opacity: 0.75;
+}
+
+.button-icon {
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+}
+
+.button-icon:active{
+    opacity: 0.75;
+}
+
+/* ------------------------------------------------------ */
+/* --------------------- Inputs Text -------------------- */
+/* ------------------------------------------------------ */
+
+.input{
+    width: 100%;
+    font-size: 1em;
+    padding: 4px;
+    margin: 4px auto;
+    border-radius: 8px;
+}
+
+.default-input{
+    border: 1px solid var(--gray-color);
+}
+
+.primary-input{
+    border: 1px solid var(--primary-color);
+}
+
+.secondary-input{
+    border: 1px solid var(--secondary-color);
+}
+
+.success-input{
+    border: 1px solid var(--success-color);
+}
+
+.danger-input{
+    border: 1px solid var(--danger-color);
+}
+
+.warning-input{
+    border: 1px solid var(--warning-color);
+}
+
+.info-input{
+    border: 1px solid var(--info-color);
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon i{
+    position: absolute;
+    font-size: 1em;
+    top: 10px;
+    right: 8px;
+}
+
+.online-group {
+    width: 100%;
+}
+
+.online-group input{
+    max-width: 320px;
+    margin: 0;
+}
+
+/* ------------------------------------------------------ */
+/* ------------------------ Toast ----------------------- */
+/* ------------------------------------------------------ */
+
+.div-toast{
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    max-width: 320px;
+    border-radius: 4px 0px 0px 4px;
+    position: fixed;
+    overflow: hidden;
+    top: 16px;
+    right: 0px;
+    z-index: 25;
+}
+
+.div-toast .toast{
+    border-radius: 4px;
+    height: 32px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-toast .toast .content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.div-toast .toast .content .message{
+    font-size: 0.8em;
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.i-toast{
+    font-size: 1.5em;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.i-toast:active{
+    opacity: 0.75;
+}
+
+/* ------------------------------------------------------ */
+/* ---------------------- Snackbar ---------------------- */
+/* ------------------------------------------------------ */
+
+.div-snackbar{
+    width: 312px;
+    padding: 2px;
+    position: absolute;
+    bottom: 16px;
+    left: calc((100% - 312px) / 2);
+    right: 0;
+    z-index: 20;
+}
+
+.div-snackbar .snackbar{
+    background-color: var(--gray-dark);
+    color: var(--white-color);
+    height: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-snackbar .snackbar .message{
+    font-size: 0.8em;
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.div-snackbar .snackbar .action a{
+    text-decoration: none;
+    background-color: var(--gray-dark);
+    color: var(--white-color);
+    font-size: 0.8em;
+    padding: 4px;
+    border: 1px solid var(--white-color);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.div-snackbar .snackbar .action a:active{
+    background-color: var(--black-color);
+    border-color: var(--gray-color);
+}
+
+/* ------------------------------------------------------ */
+/* ------------------------ Cards ----------------------- */
+/* ------------------------------------------------------ */
+
+.card {
+    border-radius: 4px;
+    margin: 8px;
+    padding: 8px;
+}
+
+.card-item-list{
+    display: flex;
+    align-items: center;
+}
+
+.card-item-content{
+    padding: 4px;
+}
+
+.card-item-field{
+    max-width: 240px;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+.identifier{
+    font-style: italic;
+    font-weight: bold;
+}
+
+.default-card {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    box-shadow: 2px 2px 2px 2px var(--gray-dark);
+}
+
+.primary-card {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    box-shadow: 2px 2px 2px 2px var(--primary-light);
+}
+
+.secondary-card {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    box-shadow: 2px 2px 2px 2px var(--secondary-light);
+}
+
+.success-card {
+    background-color: #008000;
+    color: var(--white-color);
+    box-shadow: 2px 2px 2px 2px #00af00;
+}
+
+.danger-card {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+    box-shadow: 2px 2px 2px 2px #ff8080;
+}
+
+.warning-card {
+    background-color: var(--warning-color);
+    color: var(--black-color);
+    box-shadow: 2px 2px 2px 2px #ffff80;
+}
+
+.info-card {
+    background-color: var(--info-color);
+    color: var(--white-color);
+    box-shadow: 2px 2px 2px 2px #8ee4f1;
+}
+
+/* ------------------------------------------------------ */
+/* ------------------------ Tables ---------------------- */
+/* ------------------------------------------------------ */
+
+.table-responsive {
+    overflow-x: auto;
+    margin: 4px;
+    padding: 4px;
+}
+
+.sortable-column {
+    background-color: var(--gray-dark);
+    color: var(--white-color);
+    cursor: pointer;
+    border: 1px solid var(--gray-light);
+    text-transform: uppercase;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+/* ------------------------------------------------------ */
+/* ------------------------ Login ----------------------- */
+/* ------------------------------------------------------ */
+
+.register-page{
+    background-color: var(--secondary-color);
+    width: 100%;
+    height: 100vh;
+}
+
+.login-simple{
+    background-color: var(--primary-color);
+    width: 100%;
+    height: 100vh;
+}
+
+.login-image{
+    background-color: var(--primary-color);
+    background-image:url('../img/background-tech.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    width: 100%;
+    height: 100vh;
+}
+
+.login-page{
+    background-color: var(--primary-color);
+    background-image:url('../img/background-tech.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    width: 100%;
+    height: 100vh;
+}
+
+.login-container{
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 440px;
+    margin: auto;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    position: absolute;
+    top: 16px;
+    left: calc((100% - 440px) / 2);
+}
+
+.login-container form a{
+    text-decoration: none;
+    color: var(--primary-dark);
+    font-weight: bold;
+    font-style: italic;
+}
+
+video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.div-grid{
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+/* ------------------------------------------------------ */
+/* -------------------- Spread Sheet -------------------- */
+/* ------------------------------------------------------ */
+
+.tools-bar{
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 32px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+}
+
+.tools-bar button{
+    border-radius: 4px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    min-width: 80px;
+}
+
+.tools-divider{
+    background-color: var(--gray--light);
+    width: 2px;
+    margin: 4px 2px;
+}
+
+.tabs-bar{
+    background-color: rgba(0, 0, 0, 0.9);
+    border-bottom: 2px solid var(--gray-light);
+    position: absolute;
+    top: 70px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+}
+
+.tabs-bar button{
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 1px solid var(--gray-color);
+    border-radius: 4px 4px 0px 0px;
+}
+
+.table-spreadsheet{
+    margin-top: 64px;
+    height: calc(100vh - 64px - 80px);
+}
+
+.sheet-body{
+    margin: 0;
+    padding: 0;
+}
+
+.sheet-row{
+    margin: 0;
+    padding: 0;
+}
+
+.sheet-cell{
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--gray-color);
+}
+
+.sheet-cell input{
+    border: none;
+    border-radius: 0px;
+    width: 160px;
+    height: 32px;
+    font-size: 1em;
+}
+
+/* ------------------------------------------------------ */
+/* --------------------- Animatios ---------------------- */
+/* ------------------------------------------------------ */
+
+.focus{
+    animation: focus 2s linear infinite;
+}
+
+.beat{
+    animation: beat 2s linear infinite;
+}
+
+.wiggle{
+    animation: wiggle 1s linear infinite;
+}
+
+/* ------------------------------------------------------ */
+/* --------------------- Keyframes ---------------------- */
+/* ------------------------------------------------------ */
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes focus {
+    0% {
+        box-shadow: 0px 0px 0px 0px var(--yellow-color);
+    }
+    100% {
+        box-shadow: 0px 0px 8px 8px var(--yellow-color);
+    }
+}
+
+@keyframes beat {
+    0% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes wiggle {
+    0%, 7% { transform: rotateZ(0); }
+    15% { transform: rotateZ(-15deg); }
+    20% { transform: rotateZ(10deg); }
+    25% { transform: rotateZ(-10deg); }
+    30% { transform: rotateZ(6deg); }
+    35% { transform: rotateZ(-4deg); }
+    40%, 100% { transform: rotateZ(0deg); }
+}
+
+/* ------------------------------------------------------ */
+/* --------------------- Responsive --------------------- */
+/* ------------------------------------------------------ */
+
+@media (max-width: 480px) {
+    .main-container {
+        width: 100%;
+        padding: 4px;
+    }
+}
+
+@media (min-width:481px) and (max-width:800px) {
+    .main-container {
+        width: 95%;
+    }
+}
+
+@media (min-width:801px) and (max-width:1040px) {
+    .main-container {
+        width: 90%;
+    }
+}
+
+@media (min-width:1041px) {
+    .main-container {
+        width: 85%;
+    }
+}
+
+@media (max-width: 640px){
+    .online-group input{
+        max-width: 180px;
+    }
+}

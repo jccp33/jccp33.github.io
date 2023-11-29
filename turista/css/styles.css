@@ -1,0 +1,337 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button{
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 4px;
+}
+
+hr{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+select{
+    width: 100%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+h4{
+    font-size: 20px;
+}
+
+.input-text{
+    width: 100%;
+    margin: 4px;
+    padding: 4px;
+}
+
+.content{
+    width: 1300px;
+    margin: auto;
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.board{
+    width: 704px;
+    height: 704px;
+    margin-top: 16px;
+}
+
+.panel{
+    width: 275px;
+    height: 704px;
+    margin-top: 16px;
+    padding-top: 16px;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.box{
+    /* border: 1px solid blue; */
+    width: 64px;
+    height: 64px;
+    float: left;
+}
+.box img{
+    width: 100%;
+    height: 100%;
+    border: 4px solid green;
+    opacity: 0.5;
+}
+
+.blue-pointer{
+    /* background-color: purple; */
+    width: 38px;
+    position: relative;
+    z-index: 2;
+    margin-top: -64px;
+    margin-left: -4px;
+}
+.blue-pointer img{
+    border: none;
+    width: 38px;
+    opacity: 1;
+}
+
+.green-pointer{
+    /* background-color: purple; */
+    width: 40px;
+    position: relative;
+    z-index: 3;
+    margin-top: -88px;
+    margin-left: -4px;
+}
+.green-pointer img{
+    border: none;
+    width: 40px;
+    opacity: 1;
+}
+
+.gray-pointer{
+    /* background-color: purple; */
+    width: 42px;
+    position: relative;
+    z-index: 3;
+    margin-top: -88px;
+    margin-left: -4px;
+}
+.gray-pointer img{
+    border: none;
+    width: 36px;
+    opacity: 1;
+}
+
+.red-pointer{
+    /* background-color: purple; */
+    width: 38px;
+    position: relative;
+    z-index: 3;
+    margin-top: -88px;
+    margin-left: -4px;
+}
+.red-pointer img{
+    border: none;
+    width: 42px;
+    opacity: 1;
+}
+
+.pink-pointer{
+    /* background-color: purple; */
+    width: 38px;
+    position: relative;
+    z-index: 2;
+    margin-top: -86px;
+    margin-left: -4px;
+}
+.pink-pointer img{
+    border: none;
+    width: 40px;
+    opacity: 1;
+}
+
+.yellow-pointer{
+    /* background-color: purple; */
+    width: 38px;
+    position: relative;
+    z-index: 2;
+    margin-top: -86px;
+    margin-left: -4px;
+}
+.yellow-pointer img{
+    border: none;
+    width: 42px;
+    opacity: 1;
+}
+
+.turista-logo{
+    /* background-color: pink; */
+    position: absolute;
+    margin-top: 220px;
+    margin-left: 228px;
+}
+
+.turista-logo img{
+    width: 250px;
+    height: 250px;
+}
+
+.dado{
+    border: 4px solid purple;
+    font-size: 48px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.gamer-purple{
+    border: 1px solid purple;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+.gamer-red{
+    border: 1px solid red;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+.gamer-green{
+    border: 1px solid green;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+.gamer-blue{
+    border: 1px solid blue;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+.gamer-gray{
+    border: 1px solid gray;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+.gamer-pink{
+    border: 1px solid palevioletred;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+.gamer-yellow{
+    border: 1px solid darkgoldenrod;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+.pointer-game{
+    position: relative;
+    margin-top: -20px;
+    margin-left: 4px;
+    float: left;
+}
+.pointer-game img{
+    width: 16px;
+}
+
+.properties{
+    /* background-color: #ccc; */
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+}
+
+.modal{
+    display: none;
+    background:rgba(204, 204, 204, 0.9);
+    width: 100%;
+    height: 100vh;
+    position:absolute;
+    top: 0px;
+    z-index: 3;
+}
+.modal-content{
+    background-color: #fff;
+    width: 480px;
+    margin: auto;
+    margin-top: 32px;
+    padding: 4px;
+    border-radius: 8px;
+}
+.modal-title{
+    /* background-color: pink; */
+    margin: 4px;
+    padding: 4px;
+    text-align: center;
+    font-size: 24px;
+}
+.modal-body{
+    /* background-color: cyan; */
+    margin: 4px;
+    padding: 16px;
+    text-align: center;
+    font-size: 20px;
+}
+.modal-buttons{
+    /* background-color: lightsalmon; */
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+}
+
+.console{
+    background-color: black;
+    width: 100%;
+    height: 340px;
+    padding: 2px;
+    color: white;
+    font-size: 12px;
+    text-align: left;
+    overflow-y: auto;
+}
+
+.div-shopper{
+    border: 1px solid purple;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 8px;
+}
+
+.div-vendor{
+    border: 1px solid orange;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 8px;
+}
+
+.input-amount{
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 4px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.img-loader{
+    width: 300px;
+    margin: auto;
+    margin-top: 160px;
+    text-align: center;
+}

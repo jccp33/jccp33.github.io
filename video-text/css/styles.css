@@ -1,0 +1,13 @@
+
+body{
+    background-color: black;
+}
+
+.encoded{
+    font-family: monospace;
+    background-color: black;
+    color: lightgreen;
+    font-size: 0.5em;
+    line-height: 0.75em;
+    text-align: center;
+}

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="shortcut icon" href="./img/compare-icon.png"/>
+    <title>Comparador de Textos</title>
+</head>
+<body>
+    <div class="div-snackbar" id="div-snackbar"></div>
+
+    <div class="div-toast" id="div-toasts"></div>
+
+    <div class="div-modal from-top" id="loading-div" style="top: 0;">
+        <div class="loading"></div>
+    </div>
+
+    <div class="div-modal" id="virtual-keyboard" style="right: -100%;">
+        <div class="modal-content flexible">
+            <div class="modal-title">
+                <i class="fa fa-times i-toast clickable" aria-hidden="true" onclick="SHOW_VIRTUAL_KEYBOARD('');"></i>
+                <h3>Virtual Keyboard</h3>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="input primary-input" disabled id="input-virtual-keyboard">
+                <div class="keyboard">
+                    <div class="keyboard-rows">
+                        <div class="keyboard-row">
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                |
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                °
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                ¬
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                ~
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                @
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                *
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                -
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                +
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                ^
+                            </div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                [
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                ]
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                {
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                }
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                <
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                >
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                _
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                '
+                            </div>
+                            <div class="keyboard-key accent-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                ´
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="keyboard-row">
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                !
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                "
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                #
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                $
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                %
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                &
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                /
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                (
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                )
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                =
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                ?
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                ¡
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                ¿
+                            </div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                1
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                2
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                3
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                4
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                5
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                6
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                7
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                8
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                9
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                0
+                            </div>
+                            <div class="keyboard-key arrow-left" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="keyboard-key arrow-tab" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                <i class="fa fa-arrows-h" aria-hidden="true"></i>
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                Q
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                W
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                E
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                R
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                T
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                Y
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                U
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                I
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                O
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                P
+                            </div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="keyboard-key arrow-up" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                A
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                S
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                D
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                F
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                G
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                H
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                J
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                K
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                L
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                Ñ
+                            </div>
+                            <div class="keyboard-key special-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                ENT
+                            </div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                Z
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                X
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                C
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                V
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                B
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                N
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                M
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                ,
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                ;
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                .
+                            </div>
+                            <div class="keyboard-key" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                                :
+                            </div>
+                        </div>
+                        <div class="keyboard-row" onclick="ACTIVE_VIRTUAL_KEY(this);">
+                            <div class="keyboard-key space-key">
+                                SPACE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="div-modal" id="virtual-calculator" style="bottom: -100vh;">
+        <div class="content-calculator">
+            <div class="modal-title">
+                <i class="fa fa-times i-toast clickable" aria-hidden="true" onclick="SHOW_VIRTUAL_CALCULATOR();"></i>
+                <h3>CALCULATOR</h3>
+            </div>
+            <div class="div-input-button">
+                <input type="text" class="input default-input" id="input-calculator" value="0" disabled style="text-align: right; font-weight: bold; font-size: 1.25em;">
+                <a href="#" class="default-button">
+                    <i class="fa fa-clipboard" aria-hidden="true" title="COPY RESULT" onclick="COPY_CALCULATOR();"></i>
+                </a>
+            </div>
+            <div class="calculator-row">
+                <button onclick="CLEAR_CALCULATOR();">C</button>
+                <button onclick="CH_SIGN_CALCULATOR();">+/-</button>
+                <button onclick="SQRT_CALCULATOR();">&radic;</button>
+                <button onclick="PERCEN_CALCULATOR();">%</button>
+            </div>
+            <div class="calculator-row">
+                <button onclick="ADD_DIGIT_CALCULATOR(7);">7</button>
+                <button onclick="ADD_DIGIT_CALCULATOR(8);">8</button>
+                <button onclick="ADD_DIGIT_CALCULATOR(9);">9</button>
+                <button onclick="OPERATION_CALCULATOR('/');">/</button>
+            </div>
+            <div class="calculator-row">
+                <button onclick="ADD_DIGIT_CALCULATOR(4);">4</button>
+                <button onclick="ADD_DIGIT_CALCULATOR(5);">5</button>
+                <button onclick="ADD_DIGIT_CALCULATOR(6);">6</button>
+                <button onclick="OPERATION_CALCULATOR('*');">X</button>
+            </div>
+            <div class="calculator-row">
+                <button onclick="ADD_DIGIT_CALCULATOR(1);">1</button>
+                <button onclick="ADD_DIGIT_CALCULATOR(2);">2</button>
+                <button onclick="ADD_DIGIT_CALCULATOR(3);">3</button>
+                <button onclick="OPERATION_CALCULATOR('-');">-</button>
+            </div>
+            <div class="calculator-row">
+                <button onclick="ADD_DIGIT_CALCULATOR(0);">0</button>
+                <button onclick="ADD_POINT_CALCULATOR();">.</button>
+                <button onclick="CALCULATE_CALCULATOR();">=</button>
+                <button onclick="OPERATION_CALCULATOR('+');">+</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-bar">
+        <div>
+            <!--<div class="group-icons">
+                <a href="javascript:SHOW_LEFT_MENU()"><i class="fa fa-bars"></i></a>
+            </div>
+            <div class="div-menu-opt left-menu" id="left-menu" style="display: none;">
+                <ul>
+                    <li>
+                        <a href="#">Left Option 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Left Option 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Left Option 3</a>
+                    </li>
+                </ul>
+            </div>-->
+        </div>
+        <div style="font-weight: bolder;">Comparador de Textos</div>
+        <div>
+            <!--<div class="group-icons">
+                <a href="javascript:SHOW_RIGHT_MENU()"><i class="fa fa-ellipsis-v"></i></a>
+            </div>
+            <div class="div-menu-opt right-menu" id="right-menu" style="display: none;">
+                <ul>
+                    <li>
+                        <a href="javascript:ShowAlertsExample();">Alerts</a>
+                    </li>
+                    <li>
+                        <a href="javascript:FRAMEWORK_SNACKBAR('Snackbar message!', 'EVENT', '#');">SnackBar</a>
+                    </li>
+                    <li>
+                        <a href="javascript:SHOW_VIRTUAL_CALCULATOR(); SHOW_RIGHT_MENU();">Calculator</a>
+                    </li>
+                </ul>
+            </div>-->
+        </div>
+    </div>
+    
+    <div class="main-container full">
+        <div class="div-grid">
+            <div class="card info-card flex">
+                <h2>Texto 1</h2>
+                <textarea rows="24" id="text1"></textarea>
+            </div>
+
+            <div class="card danger-card flex">
+                <h2>Texto 2</h2>
+                <textarea rows="24" id="text2"></textarea>
+            </div>
+        </div>
+        <div class="center-aligned">
+            <button class="button-text warning-button big-button" onclick="ClearTexts();">LIMPIAR</button>
+            <button class="button-text success-button big-button" onclick="CompareTexts();">COMPARAR</button>
+        </div>
+        <div class="card success-card">
+            <h2>Resultado</h2>
+            <div class="result" id="result">
+            </div>
+        </div>
+    </div>
+
+    <div class="app-bar">
+        <div></div>
+        <div class="app-footer">
+            <a href="https://www.appsevolution.com.mx/">&copy; Apps Evolution 2023</a>
+        </div>
+        <div></div>
+    </div>
+
+    <script src="js/scripts.js"></script>
+    <script>
+        function addLinesNumber(id){
+            let e = document.getElementById(id);
+            let text = e.value;
+            e.value = "";
+            text = text.split(/\r|\r\n|\n/);
+            // get number line
+            let zeros = 0;
+            if(text.length>10 && text.length<100){
+                zeros = 2;
+            }else if(text.length>=100 && text.length<1000){
+                zeros = 3;
+            }else if(text.length>=1000 && text.length<10000){
+                zeros = 4;
+            }else if(text.length>=10000 && text.length<100000){
+                zeros = 5;
+            }else if(text.length>=100000){
+                zeros = 6;
+            }
+            text.forEach((v, i) => {
+                let l = zeroFill(i+1, zeros) + ". ";
+                e.value += l + v + '\n';
+                //console.log(l + v);
+            });
+        }
+
+        function zeroFill(number, width){
+            let numberOutput = Math.abs(number);
+            let length = number.toString().length;
+            let zero = "0";  
+            if (width <= length) {
+                if (number < 0) {
+                    return ("-" + numberOutput.toString()); 
+                } else {
+                    return numberOutput.toString(); 
+                }
+            } else {
+                if (number < 0) {
+                    return ("-" + (zero.repeat(width - length)) + numberOutput.toString()); 
+                } else {
+                    return ((zero.repeat(width - length)) + numberOutput.toString()); 
+                }
+            }
+        }
+
+        function CompareTexts(){
+            let result = document.getElementById('result');
+            // get lines
+            let text1 = document.getElementById('text1').value;
+            let text2 = document.getElementById('text2').value;
+            text1 = text1.split(/\r|\r\n|\n/);
+            text2 = text2.split(/\r|\r\n|\n/);
+            // get max line and older text
+            let max_line = text1.length<text2.length ? text1.length : text2.length;
+            let older_text = text1.length>text2.length ? text1 : text2;
+            let older_line = older_text.length
+            // compare texts
+            result.innerHTML = "";
+            for(let i=0; i<max_line; i++){
+                // get number line
+                let zeros = 0;
+                if(older_line>10 && older_line<100){
+                    zeros = 2;
+                }else if(older_line>=100 && older_line<1000){
+                    zeros = 3;
+                }else if(older_line>=1000 && older_line<10000){
+                    zeros = 4;
+                }else if(older_line>=10000 && older_line<100000){
+                    zeros = 5;
+                }else if(older_line>=100000){
+                    zeros = 6;
+                }
+                zeros = zeroFill(i+1, zeros);
+                // compare texts
+                if(text1[i] === text2[i]){
+                    let div = document.createElement('div');
+                    div.classList.add('success');
+                    div.innerText = zeros + ". " + text1[i];
+                    result.appendChild(div);
+                    //result.innerHTML += `<div class="success">${}</div>`;
+                }else{
+                    let div1 = document.createElement('div');
+                    let div2 = document.createElement('div');
+                    div1.classList.add('info');
+                    div2.classList.add('danger');
+                    div1.innerText = zeros + ". " + text1[i];
+                    div2.innerText = zeros + ". " + text2[i];
+                    result.appendChild(div1);
+                    result.appendChild(div2);
+                    //result.innerHTML += `<div class="info">${zeros + ". " + text1[i]}</div>`;
+                    //result.innerHTML += `<div class="danger">${zeros + ". " + text2[i]}</div>`;
+                }
+            }
+            // add leftover lines
+            for(let i=max_line; i<older_text.length; i++){
+                // get number line
+                let zeros = 0;
+                if(older_line>10 && older_line<100){
+                    zeros = 2;
+                }else if(older_line>=100 && older_line<1000){
+                    zeros = 3;
+                }else if(older_line>=1000 && older_line<10000){
+                    zeros = 4;
+                }else if(older_line>=10000 && older_line<100000){
+                    zeros = 5;
+                }else if(older_line>=100000){
+                    zeros = 6;
+                }
+                zeros = zeroFill(i+1, zeros);
+                var isEqual = JSON.stringify(older_text) === JSON.stringify(text1);
+                if(isEqual){
+                    let div1 = document.createElement('div');
+                    let div2 = document.createElement('div');
+                    div1.classList.add('info');
+                    div2.classList.add('danger');
+                    div1.innerText = zeros + ". " + text1[i];
+                    div2.innerText = zeros + ". No Line";
+                    result.appendChild(div1);
+                    result.appendChild(div2);
+                    //result.innerHTML += `<div class="info">${zeros + ". " + text1[i]}</div>`;
+                    //result.innerHTML += `<div class="danger">${zeros + ". "}</div>`;
+                }else{
+                    let div1 = document.createElement('div');
+                    let div2 = document.createElement('div');
+                    div1.classList.add('info');
+                    div2.classList.add('danger');
+                    div1.innerText = zeros + ". No Line";
+                    div2.innerText = zeros + ". " + text2[i];
+                    result.appendChild(div1);
+                    result.appendChild(div2);
+                    //result.innerHTML += `<div class="info">${zeros + ". "}</div>`;
+                    //result.innerHTML += `<div class="danger">${zeros + ". " + text2[i]}</div>`;
+                }
+            }
+            // add lines number in textarea 
+            addLinesNumber("text1");
+            addLinesNumber("text2");
+        }
+
+        function ClearTexts(){
+            document.getElementById('text1').value = "";
+            document.getElementById('text2').value = "";
+            document.getElementById('result').innerHTML = "";
+        }
+    </script>
+</body>
+</html>
